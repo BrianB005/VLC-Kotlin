@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="HardcodedText">
+    <item
+        android:title="Video"
+        android:icon="@drawable/ic_baseline_movie_24"
+        android:id="@+id/video"
+        />
+    <item
+        android:title="Audio"
+        android:icon="@drawable/ic_baseline_music_note_24"
+        android:id="@+id/audio"
+        />
+    <item
+        android:title="Browse"
+        android:icon="@drawable/ic_baseline_folder_24"
+        android:id="@+id/browse"
+        />
+    <item
+        android:title="Playlists"
+        android:icon="@drawable/ic_baseline_playlist_play_24"
+        android:id="@+id/play_lists"
+        />
+    <item
+        android:title="More"
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:id="@+id/more"
+        />
+
+
+</menu>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="HardcodedText"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item android:title="kizz_daniel_tekno_buga_official_video_aac_1967.m4a"
+        android:id="@+id/title"
+
+        />
+    <item android:id="@+id/play_all"
+        android:title="Play all"
+
+        android:icon="@drawable/ic_baseline_slow_motion_video_24"
+        />
+    <item android:id="@+id/append"
+        android:title="Append"
+        android:icon="@drawable/ic_baseline_queue_24"/>
+    <item android:id="@+id/insert_next"
+        android:title="Insert next"
+        android:icon="@drawable/ic_baseline_video_library_24"/>
+    <item android:id="@+id/information"
+        android:title="Information"
+        android:icon="@drawable/ic_outline_info_24"/>
+    <item android:id="@+id/add_to_playlist"
+        android:title="Add to playlist"
+        android:icon="@drawable/ic_baseline_playlist_add_24"/>
+
+    <item android:id="@+id/set_as_ringtone"
+        android:title="Set as ringtone"
+        android:icon="@drawable/ic_baseline_settings_phone_24"/>
+    <item android:id="@+id/delete"
+        android:title="Delete"
+        android:icon="@drawable/ic_baseline_playlist_play_24"/>
+    <item android:id="@+id/share_song"
+        android:title="Share"
+        android:icon="@drawable/ic_baseline_share_24"/>
+    <item android:id="@+id/create_launcher_shortcut"
+        android:title="Create a launcher shortcut"
+        android:icon="@drawable/ic_outline_app_shortcut_24"/>
+    <item android:id="@+id/browse_parent"
+        android:title="Browse parent"
+        android:icon="@drawable/ic_baseline_folder_24"/>
+
+
+
+</menu>

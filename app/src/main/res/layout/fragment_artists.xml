@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ArtistsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+
+            android:paddingHorizontal="40dp"
+            android:text="We often sneaked out at night to, for example, sing ‘American Pie’ beneath the window of the captain of the cheerleading team. (Her father was a local minister and so, we reasoned, less likely to shoot). After I was caught returning at dawn from one such late-night escapade, my worried mother thoroughly interrogated me regarding every drug teenagers take, never suspecting that the most intoxicating thing I’d experienced, by far, was the volume of romantic poetry she’d handed me the previous week. My life had been building potential, potential that would now go unrealized. I had planned to do so much, and I had come so close. I’ve spent almost a third of my life preparing for it. I had mapped out this whole forty-year career for myself—the first twenty as a surgeon-scientist, the last twenty as a writer. But now that I am likely well into my last twenty years, I don’t know which career I should be pursuing. If I had some sense of how much time I have left, it’d be easier. If I had two years, I’d write. If I had ten, I’d get back to surgery and science. If only I knew how many months or years I had left. Tell me three months, I’d spend time with family. Tell me one year, I’d write a book. Give me ten years, I’d get back to treating diseases. The truth that you live one day at a time didn’t help: What was I supposed to do with that day?" />
+
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

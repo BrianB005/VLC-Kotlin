@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingVertical="10dp"
+    android:paddingHorizontal="10dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardCodedText"
+    android:gravity="center_vertical"
+    style="@style/SelectableItemBackground"
+    >
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="null"
+        app:drawableLeftCompat="@drawable/audio"
+        app:drawableTint="@color/white"
+
+        />
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="10dp"
+        android:id="@+id/audio_name"
+        android:text="kizz_daniel_tekno_buga_official_video_aac_1967.m4a"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/show_audio_menu"
+        android:clickable="true"
+
+        android:focusable="true"
+        style="@style/SelectableItemBackgroundBorderLess"
+        app:drawableEndCompat="@drawable/ic_baseline_more_vert_24" />
+
+
+
+
+</LinearLayout>

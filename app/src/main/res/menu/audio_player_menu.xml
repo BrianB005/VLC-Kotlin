@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="HardcodedText">
+    <item
+        android:icon="@drawable/ic_baseline_search_24"
+        android:id="@+id/search_playlists"
+        android:title="Search playlists"
+
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:icon="@drawable/ic_baseline_playlist_play_24"
+        android:id="@+id/show_playlist"
+        android:title="Show playlist"
+        app:showAsAction="ifRoom"
+        />
+
+    <item android:id="@+id/sleep_timer"
+        android:title="Sleep timer"
+
+        android:icon="@drawable/ic_baseline_slow_motion_video_24"
+        />
+    <item android:id="@+id/play_back_speed"
+        android:title="Playback speed"
+        android:icon="@drawable/ic_baseline_queue_24"/>
+    <item android:id="@+id/jump_to_time"
+        android:title="Jump to time"
+        android:icon="@drawable/ic_baseline_video_library_24"/>
+    <item android:id="@+id/equalizer"
+        android:title="Equalizer"
+        android:icon="@drawable/ic_outline_info_24"/>
+    <item android:id="@+id/book_marks"
+        android:title="Bookmarks"
+        android:icon="@drawable/ic_baseline_playlist_add_24"/>
+
+    <item android:id="@+id/a_to_b_repeat"
+        android:title="A-B repeat"
+        android:icon="@drawable/ic_baseline_settings_phone_24"/>
+    <item android:id="@+id/save_playlist"
+        android:title="Save playlist"
+        android:icon="@drawable/ic_baseline_playlist_play_24"/>
+    <item android:id="@+id/controls_settings"
+        android:title="Controls settings"
+        android:icon="@drawable/ic_baseline_share_24"/>
+    <item android:id="@+id/audio_tips"
+        android:title="Audio player tips"
+        android:icon="@drawable/ic_outline_app_shortcut_24"/>
+    <item android:id="@+id/playlist_tips"
+        android:title="Playlist tips"
+        android:icon="@drawable/ic_baseline_folder_24"/>
+
+
+
+</menu>
