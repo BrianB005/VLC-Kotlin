@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardCodedText"
+    android:clickable="true"
+    android:focusable="true"
+    style="@style/SelectableItemBackground"
+    android:padding="9dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:id="@+id/image_view"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:src="@drawable/music_note"
+        />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/playlist_name"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:lines="1"
+        android:ellipsize="end"
+        android:text="Invincibles"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/number_of_tracks"
+            android:textSize="15sp"
+            android:padding="8dp"
+            android:text="1 track"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playlist_duration"
+            android:text="3:23"
+
+            android:textSize="15sp"
+            />
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/show_playlist_menu"
+            app:drawableLeftCompat="@drawable/ic_baseline_more_vert_24" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
