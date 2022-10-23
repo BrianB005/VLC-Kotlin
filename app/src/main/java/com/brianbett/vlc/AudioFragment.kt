@@ -2,6 +2,7 @@ package com.brianbett.vlc
 
 import android.annotation.SuppressLint
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.*
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -18,7 +20,12 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 import java.util.*
+import java.util.prefs.Preferences
+import kotlin.collections.ArrayList
 
 
 class AudioFragment : Fragment() {
@@ -28,22 +35,8 @@ class AudioFragment : Fragment() {
 
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val onBackPressedCallback=object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if(popupWindow.isShowing){
-                    popupView.startAnimation(AnimationUtils.loadAnimation(context,R.anim.slide_ttb_fast))
-                    popupWindow.dismiss()
-                }else{
-                    requireActivity().onBackPressedDispatcher.onBackPressed()
-                }
-            }
-        }
-        requireActivity().onBackPressedDispatcher.addCallback(this,onBackPressedCallback)
 
-
-    }
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -90,7 +83,7 @@ class AudioFragment : Fragment() {
             mediaPlayer.visibility=View.VISIBLE
             shuffleBtn.visibility=View.VISIBLE
             songName.text=currentSong.songTitle
-            val songDurationString=convertMilliseconds(currentSong.songDuration.toInt())
+            val songDurationString=ConvertMilliseconds.convertMilliseconds(currentSong.songDuration.toInt())
             songDuration.text=songDurationString
 
             //        observing progress
@@ -112,6 +105,19 @@ class AudioFragment : Fragment() {
             }
         }
         model.isPlayPaused.observe(viewLifecycleOwner,isPausedObserver)
+
+
+        val playListObserver=Observer<LinkedList<AudioFile>>{playlist->
+            model.songsIterator.value=playlist.listIterator()
+            AudioPlayer.playFromPlaylist(requireContext(),model)
+        }
+        model.playListToInsert.observe(viewLifecycleOwner,playListObserver)
+
+        val appendedPlayListObserver=Observer<LinkedList<AudioFile>>{playlist->
+            model.songsIterator.value=playlist.listIterator()
+            AudioPlayer.playFromAppendedPlaylist(requireContext(),model)
+        }
+        model.playlistToAppend.observe(viewLifecycleOwner,appendedPlayListObserver)
 
         pauseSong.setOnClickListener{
             model.isPlayPaused.value=true
@@ -165,8 +171,22 @@ class AudioFragment : Fragment() {
                 super.onPageSelected(position)
             }
         })
+
+        //    updating view model playlists to reflect the current playlists saved
+
+        val savedPlaylistsString: String = MyPreferences.getItemFromSP(requireContext(), "playlists")
+        val type: Type = object : TypeToken<ArrayList<PlayList?>?>() {}.type
+        val gson= Gson()
+        if(savedPlaylistsString.isNotEmpty()){
+            val allPlaylists: ArrayList<PlayList> = gson.fromJson(savedPlaylistsString, type)?: ArrayList()
+            model.playlists.value=allPlaylists
+        }
+
         return rootView
         }
+
+
+
     @SuppressLint("SetTextI18n")
     private  fun handlePopupWindow(){
         val rewindTen=popupView.findViewById<TextView>(R.id.rewind_10)
@@ -229,14 +249,14 @@ class AudioFragment : Fragment() {
 //            albumArt.setImageURI(Uri.parse(currentSong.albumArt))
 
             songName.text=currentSong.songTitle
-            val songDurationString=convertMilliseconds(currentSong.songDuration.toInt())
+            val songDurationString=ConvertMilliseconds.convertMilliseconds(currentSong.songDuration.toInt())
             songDuration.text=songDurationString
             //        observing progress
             val progressObserver=Observer<Int>{currentProgress->
                 songProgress.max= currentSong.songDuration.toInt()
                 songProgress.progress = currentProgress
                 val remainingTimeMs=currentSong.songDuration.toInt()-currentProgress
-                val remainingTime=convertMilliseconds(remainingTimeMs)
+                val remainingTime=ConvertMilliseconds.convertMilliseconds(remainingTimeMs)
                 timeRemaining.text="-$remainingTime"
 
             }
@@ -271,22 +291,7 @@ class AudioFragment : Fragment() {
 
 
     }
-    private fun convertMilliseconds(timeInMillis:Int):String{
-        val audioDurationMinutes =timeInMillis / 60000
-        val audioDurationInSeconds=timeInMillis % 60000 / 1000
-        val formattedSeconds=if(audioDurationInSeconds<10) "0$audioDurationInSeconds" else audioDurationInSeconds
-        val songDurationString:String = if(audioDurationMinutes>60){
-            val hours=audioDurationMinutes/60
-            val minutes= audioDurationMinutes%60
-            val formattedMinutes=if(minutes<10) "0$minutes" else minutes
 
-            "$hours:$formattedMinutes:$formattedSeconds"
-        }else{
-            "$audioDurationMinutes:$formattedSeconds"
-        }
-
-        return songDurationString.format("%. 2f")
-    }
     private fun sortList(model:MyViewModel,sortOrder:String){
         val listToSort=model.songsToPlay.value
         when (sortOrder) {
@@ -311,5 +316,13 @@ class AudioFragment : Fragment() {
 
         }
         model.songsToPlay.value=listToSort
+    }
+
+    override fun onStop() {
+        super.onStop()
+        val gson= Gson()
+        val playlistsString=gson.toJson(model.playlists.value)
+        MyPreferences.saveItemToSP(requireContext(),"playlists",playlistsString
+        )
     }
 }

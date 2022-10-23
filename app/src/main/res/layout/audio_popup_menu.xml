@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/background_with_round_edges"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText"
+    android:paddingVertical="16dp"
+
+
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingHorizontal="15dp"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="kizz_daniel_tekno_buga_official_video_aac_1967.m4a"
+        android:paddingVertical="16dp"
+
+        android:id="@+id/title"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Play all"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        style="@style/SelectableItemBackground"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:id="@+id/play_all"
+        app:drawableLeftCompat="@drawable/ic_baseline_slow_motion_video_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Append"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        style="@style/SelectableItemBackground"
+        android:id="@+id/append"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:drawableLeftCompat="@drawable/ic_baseline_queue_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Insert next"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        style="@style/SelectableItemBackground"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:id="@+id/insert_next"
+        app:drawableLeftCompat="@drawable/ic_baseline_slow_motion_video_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Information"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        style="@style/SelectableItemBackground"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        android:id="@+id/info"
+        app:drawableLeftCompat="@drawable/ic_outline_info_24" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Add to playlist"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        style="@style/SelectableItemBackground"
+        android:id="@+id/add_to_playlist"
+        app:drawableLeftCompat="@drawable/ic_baseline_playlist_add_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        android:text="Set as ringtone"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        style="@style/SelectableItemBackground"
+        android:id="@+id/set_as_ringtone"
+        app:drawableLeftCompat="@drawable/ic_baseline_settings_phone_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Delete"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        style="@style/SelectableItemBackground"
+        android:id="@+id/delete"
+        app:drawableLeftCompat="@drawable/ic_baseline_delete_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:text="Share"
+
+        style="@style/SelectableItemBackground"
+        android:id="@+id/share_song"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:drawableLeftCompat="@drawable/ic_baseline_share_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+
+        android:focusable="true"
+        android:text="Create a launcher shortcut"
+
+        style="@style/SelectableItemBackground"
+        android:id="@+id/create_launcher_shortcut"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:drawableLeftCompat="@drawable/ic_outline_app_shortcut_24" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:focusable="true"
+        android:text="Browse parent"
+        android:drawablePadding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="16dp"
+        android:gravity="center_vertical"
+
+        style="@style/SelectableItemBackground"
+        android:id="@+id/browse_parent"
+        app:drawableLeftCompat="@drawable/ic_baseline_folder_24" />
+
+
+
+
+</LinearLayout>

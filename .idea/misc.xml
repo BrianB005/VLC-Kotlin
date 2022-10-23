@@ -3,18 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/background_with_round_edges.xml" value="0.1355" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_baseline_play_circle_outline_24.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_baseline_repeat_24.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_baseline_repeat_one_24.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_baseline_skip_next_24.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_baseline_skip_previous_24.xml" value="0.217" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_outline_fullscreen_24.xml" value="0.1365" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/ic_outline_shuffle_24.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/seek_bar_progress.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/seek_bar_style.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/drawable/seek_bar_thumb.xml" value="0.217" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/activity_audio_player.xml" value="0.33" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/activity_main.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/activity_video_player.xml" value="0.12760416666666666" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/audio_player_popup.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/create_playlist.xml" value="0.125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/fragment_artists.xml" value="0.265625" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/fragment_audio.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/fragment_browse.xml" value="0.12552083333333333" />
@@ -22,10 +26,18 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/fragment_playlists.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/fragment_tracks.xml" value="0.2515625" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/fragment_video.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/play_list.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/playlists_popup.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/single_artist.xml" value="0.125" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/single_audio_file.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/single_play_list.xml" value="0.25" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/single_saved_playlist.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/single_video_file.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/song_popup_menu.xml" value="0.1630859375" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/test_layout.xml" value="0.18" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/tool_bar.xml" value="0.12604166666666666" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/menu/audio_menu.xml" value="0.27395833333333336" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/layout/video_player_popup.xml" value="0.25" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/menu/audio_menu.xml" value="0.1" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/menu/audio_player_menu.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/menu/audio_tab_items_menu.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/VLC/app/src/main/res/menu/audio_tool_bar_menu.xml" value="0.13020833333333334" />

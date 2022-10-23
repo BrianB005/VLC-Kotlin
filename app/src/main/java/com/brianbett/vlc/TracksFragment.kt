@@ -92,8 +92,6 @@ class TracksFragment : Fragment(){
                 ).show()
             }
             else->{
-
-
                 CoroutineScope(Dispatchers.IO).launch {
                     getAudios(context?.applicationContext!!, model)
                    CoroutineScope(Main).launch {
@@ -126,11 +124,13 @@ class TracksFragment : Fragment(){
 
 
 
+
         return binding.root
     }
 
     @SuppressLint("NotifyDataSetChanged")
    fun getAudios(applicationContext: Context,model: MyViewModel){
+
 
 
         val tracksList=LinkedList<AudioFile>()
@@ -159,22 +159,22 @@ class TracksFragment : Fragment(){
 
 
                val audioTitle: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.TITLE)
                val audioArtist: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST)
                val audioDuration: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.DURATION)
                val audioData: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.DATA)
                val audioAlbum: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM)
 
                val audioAlbumId: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID)
                val dateAdded: Int =
-                   cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATE_ADDED)
+                   cursor.getColumnIndex(MediaStore.Audio.Media.DATE_ADDED)
 
-               val songId: Int = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID)
+               val songId: Int = cursor.getColumnIndex(MediaStore.Audio.Media._ID)
 
                val albumArtUri = MediaStore.Audio.Albums.EXTERNAL_CONTENT_URI
 
@@ -187,6 +187,7 @@ class TracksFragment : Fragment(){
                        albumArtUri,
                        cursor.getLong(audioAlbumId)
                    )).toString()
+                   Log.d("Uri",albumArt)
                    val audioFile = AudioFile(
                        cursor.getString(audioTitle),
                        cursor.getLong(audioDuration),

@@ -1,19 +1,15 @@
 package com.brianbett.vlc
 
 import android.annotation.SuppressLint
-
 import android.content.Context
 import android.media.AudioAttributes
 import android.media.AudioFocusRequest
-import android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Build
 import android.os.Handler
 import android.util.Log
 import androidx.annotation.RequiresApi
-
-import java.util.*
 import android.media.AudioManager as AudioManager1
 
 
@@ -63,81 +59,84 @@ class AudioPlayer {
 
 
         @RequiresApi(Build.VERSION_CODES.O)
-        fun playAllSongsShuffled(context: Context,model: MyViewModel) {
+        fun playAllSongsUnShuffled(context: Context,model: MyViewModel) {
             if (requestAudioFocus(context)) {
                 if (mediaPlayer.isPlaying) {
                     mediaPlayer.stop()
                 }
 
 //                val iterator=model.songsToPlay.value!!.iterator()
-                val iterator=model.songsIterator.value!!
+                val iterator = model.songsIterator.value
 
+                if (iterator != null) {
+                    val firstSong = iterator.next()
+                    val firstSongUri = firstSong.songURI
+                    mediaPlayer.reset()
+                    mediaPlayer.setDataSource(context, Uri.parse(firstSongUri))
+                    mediaPlayer.prepare()
+                    model.currentSong.value = firstSong
+                    mediaPlayer.start()
+                    val handler = Handler()
+                    handler.postDelayed(object : Runnable {
+                        override fun run() {
+                            updateCurrentProgress(model)
+                            handler.postDelayed(this, 500)
+                        }
+                    }, 0)
 
-                val firstSong=iterator.next()
-                val firstSongUri = firstSong.songURI
-                mediaPlayer.reset()
-                mediaPlayer.setDataSource(context, Uri.parse(firstSongUri))
-                mediaPlayer.prepare()
-                model.currentSong.value=firstSong
-                mediaPlayer.start()
-                val handler = Handler()
-                handler.postDelayed(object : Runnable {
-                    override fun run() {
-                        updateCurrentProgress(model)
-                        handler.postDelayed(this, 500)
-                    }
-                }, 0)
+                    mediaPlayer.setOnCompletionListener {
+                        model.isPlayPaused.value = true
+                        try {
+                            mediaPlayer.stop()
+                            mediaPlayer.reset()
+                                if (model.repeatAllSongs.value!=null) {
+                                    if (goingForward) {
+                                        if (iterator.hasPrevious()) {
+                                            model.isPlayPaused.value = false
+                                            val songToRepeat = iterator.previous()
+                                            val songToRepeatUri = songToRepeat.songURI
+                                            model.currentSong.value = songToRepeat
+                                            playSong(songToRepeatUri, context)
 
-                mediaPlayer.setOnCompletionListener {
-                    model.isPlayPaused.value=true
-                    try {
-                        mediaPlayer.stop()
-                        mediaPlayer.reset()
-                        if(model.repeatAllSongs.value!=null) {
-                            if (model.repeatAllSongs.value!!) {
-                                if (goingForward) {
-                                    if (iterator.hasPrevious()) {
-                                        model.isPlayPaused.value = false
-                                        val songToRepeat = iterator.previous()
-                                        val songToRepeatUri = songToRepeat.songURI
-                                        model.currentSong.value = songToRepeat
-                                        playSong(songToRepeatUri, context)
+                                        } else {
+                                            Log.d("Start", "No record to replay")
+                                        }
 
+                                        goingForward = false
                                     } else {
-                                        Log.d("Start", "No record to replay")
-                                    }
+                                        if (iterator.hasNext()) {
+                                            model.isPlayPaused.value = false
+                                            val songToRepeat = iterator.next()
+                                            val songToRepeatUri = songToRepeat.songURI
+                                            model.currentSong.value = songToRepeat
+                                            playSong(songToRepeatUri, context)
+                                        }
 
-                                    goingForward=false
+                                    }
                                 } else {
                                     if (iterator.hasNext()) {
                                         model.isPlayPaused.value = false
-                                        val songToRepeat = iterator.next()
-                                        val songToRepeatUri = songToRepeat.songURI
-                                        model.currentSong.value = songToRepeat
-                                        playSong(songToRepeatUri, context)
+                                        val nextSong = iterator.next()
+                                        val nextSongURI = nextSong.songURI
+                                        model.currentSong.value = nextSong
+                                        playSong(nextSongURI, context)
+                                    } else {
+                                        Log.d("End", "End of list")
                                     }
-
+                                    goingForward = true
                                 }
-                            }else{
-                                if (iterator.hasNext()) {
-                                    model.isPlayPaused.value = false
-                                    val nextSong = iterator.next()
-                                    val nextSongURI = nextSong.songURI
-                                    model.currentSong.value = nextSong
-                                    playSong(nextSongURI, context)
-                                } else {
-                                    Log.d("End", "End of list")
-                                }
-                                goingForward=true
-                            }
 
+
+
+                        } catch (e: IllegalStateException) {
+                            e.printStackTrace()
                         }
-                    }catch (e:IllegalStateException){
-                        e.printStackTrace()
                     }
                 }
             }
         }
+
+
             @RequiresApi(Build.VERSION_CODES.O)
             fun playSingleSong(context: Context, model: MyViewModel,songURI:String){
                 if (requestAudioFocus(context)) {
@@ -234,6 +233,26 @@ class AudioPlayer {
                 }
             }
 
+        }
+        @RequiresApi(Build.VERSION_CODES.O)
+        fun playFromPlaylist(context: Context, model: MyViewModel){
+            if(mediaPlayer.isPlaying){
+                mediaPlayer.setOnCompletionListener {
+                    playAllSongsUnShuffled(context,model)
+                }
+            }else{
+                playAllSongsUnShuffled(context,model)
+            }
+        }
+        @RequiresApi(Build.VERSION_CODES.O)
+        fun playFromAppendedPlaylist(context: Context, model: MyViewModel){
+            if(mediaPlayer.isPlaying){
+                mediaPlayer.setOnCompletionListener {
+                    playAllSongsUnShuffled(context,model)
+                }
+            }else{
+                playAllSongsUnShuffled(context,model)
+            }
         }
         fun replayAllSongs(model: MyViewModel){
             val iterator=model.songsIterator.value

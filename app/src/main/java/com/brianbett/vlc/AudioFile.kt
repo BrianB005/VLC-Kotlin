@@ -9,6 +9,7 @@ class AudioFile(
     val dateAdded: Long
 ) {
 
-
-
+    override fun toString(): String {
+        return "AudioFile(songTitle='$songTitle', songDuration=$songDuration, songArtist='$songArtist', songId=$songId, songURI='$songURI', dateAdded=$dateAdded)"
+    }
 }

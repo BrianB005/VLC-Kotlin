@@ -27,6 +27,7 @@
         android:layout_weight="1"
         android:layout_marginHorizontal="10dp"
         android:id="@+id/audio_name"
+
         android:text="kizz_daniel_tekno_buga_official_video_aac_1967.m4a"
         />
     <TextView
@@ -34,6 +35,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/show_audio_menu"
         android:clickable="true"
+        android:padding="6dp"
+
 
         android:focusable="true"
         style="@style/SelectableItemBackgroundBorderLess"

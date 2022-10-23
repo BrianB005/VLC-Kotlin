@@ -13,6 +13,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/tracks_recycler_view"
+            android:scrollbars="vertical"
+
 
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             />
@@ -23,6 +25,7 @@
         android:indeterminate="true"
         android:indeterminateTint="@color/orange"
         android:id="@+id/loading_songs_progress"
+        android:progressTintMode="add"
 
         />
     <TextView
